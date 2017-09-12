@@ -15,7 +15,7 @@ public class Controller {
 
     @RequestMapping(value = "/contact")
     public String contact() {
-        return "This is the contact page";
+    	return "This is the contact page";
     }
 
 }
