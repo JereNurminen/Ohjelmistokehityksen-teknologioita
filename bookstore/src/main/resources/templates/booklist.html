@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>List of ALL books</title>
+</head>
+<body>
+<form th:action="@{/booklist/add}" method="post" th:object="${newBook}">
+    <table>
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Year</th>
+            <th>Price</th>
+            <th>ISBN</th>
+            <th></th>
+        </tr>
+        <tr th:each="book : ${books}">
+            <td th:text="${book.title}"></td>
+            <td th:text="${book.author}"></td>
+            <td th:text="${book.year}"></td>
+            <td th:text="${book.price}"></td>
+            <td th:text="${book.isbn}"></td>
+            <td><a th:href="@{/booklist/delete/{id}(id=${book.id})}">Delete</a></td>
+        </tr>
+        <tr>
+            <td><input th:field="${newBook.title}" type="text"/></td>
+            <td><input th:field="${newBook.author}" type="text"/></td>
+            <td><input th:field="${newBook.year}" type="number"/></td>
+            <td><input th:field="${newBook.price}" type="number" step="0.01"/></td>
+            <td><input th:field="${newBook.isbn}" type="text"/></td>
+            <td><input type="submit"/></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
