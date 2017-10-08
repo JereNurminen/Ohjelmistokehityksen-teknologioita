@@ -25,10 +25,10 @@ public class DatabaseMockDataUploader implements CommandLineRunner{
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
         List<Book> books = new ArrayList<>();
-        books.add(new Book("Yksi", "Kirjailija", "978-951-98548-9-2978-951-98548-9-2", 19.90, 1937));
-        books.add(new Book("Kaksi", "Kirjailija", "978-951-98548-9-2978-951-98548-9-2", 19.90, 1937));
-        books.add(new Book("Kolme", "Kirjailija", "978-951-98548-9-2978-951-98548-9-2", 19.90, 1937));
-        books.add(new Book("Neljä", "Kirjailija", "978-951-98548-9-2978-951-98548-9-2", 19.90, 1937));
+        books.add(new Book("Yksi", "Pekka Puu", "978-951-98548-9-2978-951-98548-9-2", 24.90, 1942));
+        books.add(new Book("Kaksi", "Matti Meikäläinen", "978-951-98548-9-2978-951-98548-9-2", 19.90, 2014));
+        books.add(new Book("Kolme", "Kirsi Kirjailija", "978-951-98548-9-2978-951-98548-9-2", 9.90, 1984));
+        books.add(new Book("Neljä", "Hilma Hupakka", "978-951-98548-9-2978-951-98548-9-2", 39.90, 1937));
         bookRepository.save(books);
 
         List<User> users = new ArrayList<>();

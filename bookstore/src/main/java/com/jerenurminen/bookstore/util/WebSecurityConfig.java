@@ -21,6 +21,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http
             .authorizeRequests()
                 .antMatchers("/login").permitAll()
+                .antMatchers("/api/**").permitAll()
                 .antMatchers("/booklist/delete/**").hasRole("ADMIN")
                 .anyRequest().authenticated()
                 .and()
@@ -37,13 +38,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        /*
-        auth
-            .inMemoryAuthentication()
-                .withUser("user").password("password").roles("USER")
-                .and()
-                .withUser("admin").password("password").roles("ADMIN");
-        */
         auth
             .userDetailsService(userDetailService)
             .passwordEncoder(new BCryptPasswordEncoder());
