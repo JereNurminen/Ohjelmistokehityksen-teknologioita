@@ -5,6 +5,7 @@
     <title>List of ALL books</title>
 </head>
 <body>
+<a href="/logout">Log out</a>
 <form th:action="@{/booklist/add}" method="post" th:object="${newBook}">
     <table>
         <tr>
@@ -21,7 +22,7 @@
             <td th:text="${book.year}"></td>
             <td th:text="${book.price}"></td>
             <td th:text="${book.isbn}"></td>
-            <td><a th:href="@{/booklist/delete/{id}(id=${book.id})}">Delete</a></td>
+            <td th:if="${isAdmin}"><a th:href="@{/booklist/delete/{id}(id=${book.id})}">Delete</a></td>
         </tr>
         <tr>
             <td><input th:field="${newBook.title}" type="text"/></td>

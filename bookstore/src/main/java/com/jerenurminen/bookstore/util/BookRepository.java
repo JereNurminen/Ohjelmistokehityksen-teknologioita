@@ -9,7 +9,7 @@ import java.util.List;
 @Repository
 public interface BookRepository extends CrudRepository<Book, Long> {
 
-    List<Book> findByIsbn(String lastName);
+    List<Book> findByIsbn(String isbn);
     List<Book> findByAuthor(String author);
     List<Book> findByTitle(String name);
     List<Book> findByYear(int year);
